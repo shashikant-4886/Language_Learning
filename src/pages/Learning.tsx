@@ -24,7 +24,7 @@ const Learning = () => {
   const params = useSearchParams()[0].get("lang") as LangType;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const [audioSrc, setAudioSrc] = useState<any>("");
   const audioRef = useRef();
 
@@ -61,7 +61,7 @@ const Learning = () => {
 
 
   const speakMyText = async () => {
-    const player: HTMLAudioElement = audioRef?.current;
+    const player: HTMLAudioElement = audioRef?.current!;
 
     if (player) {
       player.play();
@@ -117,6 +117,7 @@ const Learning = () => {
               </IconButton>
             </Typography>
             {audioSrc && (
+              // @ts-ignore
               <audio src={audioSrc} autoPlay={true} ref={audioRef}></audio>
             )}
           </Stack>
