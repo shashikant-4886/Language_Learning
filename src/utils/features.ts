@@ -1,5 +1,6 @@
 import axios from "axios";
 import { generate } from "random-words";
+// @ts-ignore
 import _ from "lodash";
 
 const generateMCQ = (meaning: { Text: string }[], i: number): string[] => {
